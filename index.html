@@ -791,4 +791,51 @@
 <!-- ─── DISCLAIMER ─────────────────────────────────────────────────── -->
 <div class="disclaimer">
   <div class="container">
-    <p><strong>Disclaimer:</strong> This website represents one person's personal research journey and lived experience. This is not medical advice. The studies and data referenced are ongoing and evolving. Some claims are well-supported by peer-reviewed research; others are based on emerging, cont
+    <p><strong>Disclaimer:</strong> This website represents one person’s personal research journey and lived experience. This is not medical advice. The studies and data referenced are ongoing and evolving. Some claims are well-supported by peer-reviewed research; others are based on emerging, contested, or limited evidence. Always consult a qualified healthcare professional before making significant changes to your diet, supplementation, or lifestyle — especially if you have pre-existing medical conditions. Do your own research.</p>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 <a href="https://yourownterms.life">yourownterms.life</a> &nbsp;·&nbsp; Built with intention &nbsp;·&nbsp; <a href="https://nelsoninno.com">About Nelson</a></p>
+</footer>
+
+<!-- ─── JS ─────────────────────────────────────────────────── -->
+<script>
+  // Fade-in on scroll — robust version
+  const fadeEls = document.querySelectorAll('.fade-in');
+
+  // Immediately reveal any element already in or near the viewport on load
+  function revealVisible() {
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 80) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  // IntersectionObserver for elements below the fold
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Run on DOMContentLoaded and again after images settle
+  revealVisible();
+  window.addEventListener('load', revealVisible);
+
+  // Hard fallback: make everything visible after 1.2 s no matter what
+  setTimeout(() => {
+    fadeEls.forEach(el => el.classList.add('visible'));
+  }, 1200);
+<\/script>
+
+</body>
+</html>
