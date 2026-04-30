@@ -3,3 +3,7 @@
 *.jpeg
 build_doc.js
 node_modules/
+
+# Allow specific site assets
+!images/favicon.png
+!images/YOT Social Share.png
