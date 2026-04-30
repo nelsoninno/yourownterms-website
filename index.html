@@ -343,6 +343,10 @@
       background: rgba(44,95,46,.12); color: var(--green);
       text-decoration: none;
     }
+    .lang-opt img {
+      width: 22px; height: 22px; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+    }
 
     /* ─── MOBILE FIXES ──────────────────────────────────────────── */
     @media(max-width:480px) {
@@ -373,8 +377,8 @@
       <li><a href="#story">My Story</a></li>
     </ul>
     <div class="lang-switcher">
-      <span class="lang-opt active">🇺🇸 EN</span>
-      <a href="/es" class="lang-opt">🇪🇸 ES</a>
+      <span class="lang-opt active"><img src="https://flagcdn.com/w40/us.png" alt=""> EN</span>
+      <a href="/es" class="lang-opt"><img src="https://flagcdn.com/w40/es.png" alt=""> ES</a>
     </div>
   </div>
 </nav>
@@ -831,5 +835,40 @@
             Follow @nelsoninno
           </a>
           <a class="bio-link" href="https://nelsoninno.com" target="_blank" rel="noopener" style="margin-top:0;">
+          </a>
+          <a class="bio-link" href="https://nelsoninno.com" target="_blank" rel="noopener" style="margin-top:0;">
             Read my full biography →
-      
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── DISCLAIMER ─────────────────────────────────────────────────── -->
+<div class="disclaimer">
+  <div class="container">
+    <p><strong>Disclaimer:</strong> This website represents one person's personal research journey and lived experience. This is not medical advice. The studies and data referenced are ongoing and evolving. Some claims are well-supported by peer-reviewed research; others are based on emerging, contested, or limited evidence. Always consult a qualified healthcare professional before making significant changes to your diet, supplementation, or lifestyle — especially if you have pre-existing medical conditions. Do your own research.</p>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 <a href="https://yourownterms.life">yourownterms.life</a> &nbsp;·&nbsp; Built with intention &nbsp;·&nbsp; <a href="https://nelsoninno.com">About Nelson</a></p>
+</footer>
+<!-- ─── JS ─────────────────────────────────────────────────── -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
