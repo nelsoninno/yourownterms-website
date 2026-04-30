@@ -104,15 +104,32 @@
     .nav-links a:hover { color: var(--green); text-decoration: none; }
     @media(max-width:640px) { .nav-links { display: none; } }
 
-    /* ─── LANGUAGE TOGGLE ──────────────────────────────────────── */
-    .lang-toggle {
-      display: inline-flex; align-items: center; gap: 5px;
-      border: 1.5px solid var(--green); color: var(--green);
-      padding: 5px 14px; border-radius: 50px;
-      font-size: .78rem; font-weight: 700; letter-spacing: .06em;
-      transition: background .2s, color .2s; text-decoration: none;
+    /* ─── LANGUAGE SWITCHER ─────────────────────────────────────── */
+    .lang-switcher {
+      display: inline-flex; align-items: center;
+      background: #E2EAE2; border-radius: 50px;
+      padding: 4px; gap: 2px; flex-shrink: 0;
     }
-    .lang-toggle:hover { background: var(--green); color: #fff; text-decoration: none; }
+    .lang-opt {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 16px; border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: .82rem; font-weight: 600;
+      color: var(--text-muted); text-decoration: none;
+      transition: background .2s, color .2s; white-space: nowrap;
+      cursor: default;
+    }
+    .lang-opt.active {
+      background: var(--green); color: #fff;
+      box-shadow: 0 2px 8px rgba(44,95,46,.25);
+    }
+    .lang-opt:not(.active) {
+      cursor: pointer;
+    }
+    .lang-opt:not(.active):hover {
+      background: rgba(44,95,46,.12); color: var(--green);
+      text-decoration: none;
+    }
 
     /* ─── HERO ──────────────────────────────────────────────────── */
     .hero {
@@ -351,7 +368,10 @@
       <li><a href="#habitos">Hábitos y Exposición</a></li>
       <li><a href="#historia">Mi Historia</a></li>
     </ul>
-    <a href="/" class="lang-toggle">EN</a>
+    <div class="lang-switcher">
+      <a href="/" class="lang-opt">🇺🇸 EN</a>
+      <span class="lang-opt active">🇪🇸 ES</span>
+    </div>
   </div>
 </nav>
 
@@ -828,20 +848,4 @@
   <p>© 2026 <a href="https://yourownterms.life">yourownterms.life</a> &nbsp;·&nbsp; Construido con intención &nbsp;·&nbsp; <a href="https://nelsoninno.com">Sobre Nelson</a></p>
 </footer>
 
-<!-- ─── JS ─────────────────────────────────────────────────── -->
-<script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+<!-- ─── JS ───�
