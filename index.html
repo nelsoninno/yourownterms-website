@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Own Terms — A Personal Health Philosophy</title>
+  <meta name="description" content="A personal health philosophy built around real food, natural movement, and intentional habits. Biohack your body into its healthiest state — on your own terms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:       #2C5F2E;
+      --green-mid:   #4A7C59;
+      --green-light: #EEF7EE;
+      --gold:        #8B6914;
+      --gold-light:  #FFF8E7;
+      --red-light:   #FFF3F0;
+      --cream:       #FAFAF7;
+      --white:       #FFFFFF;
+      --text:        #1A1A1A;
+      --text-muted:  #555555;
+      --border:      #E5E5DD;
+      --max:         1080px;
+      --radius:      10px;
+    }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    img { max-width: 100%; height: auto; display: block; border-radius: var(--radius); }
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── UTILITIES ─────────────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 80px 0; }
+    .section-alt { background: #F2F5F0; }
+    .section-dark { background: var(--green); color: #fff; }
+    .text-center { text-align: center; }
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ─── TYPOGRAPHY ────────────────────────────────────────────── */
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--green); margin-bottom: 16px; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text); margin-bottom: 10px; }
+    p  { margin-bottom: 16px; color: var(--text-muted); }
+    p:last-child { margin-bottom: 0; }
+
+    .pillar-label {
+      font-size: .75rem; font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--green-mid);
+      margin-bottom: 8px; display: block;
+    }
+    .story-label {
+      font-size: 1rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--green-mid);
+      margin-bottom: 12px; display: block;
+    }
+
+    /* ─── NAV ───────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,250,247,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem;
+      font-weight: 700; color: var(--green); letter-spacing: .02em;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--green); text-decoration: none; }
+    @media(max-width:640px) { .nav-links { display: none; } }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      min-height: 92vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 80px 24px;
+      background: linear-gradient(160deg, #1a3a1a 0%, #2C5F2E 55%, #3d7a40 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-eyebrow {
+      font-size: .8rem; font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase; color: rgba(255,255,255,.6);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 10vw, 6rem); color: #fff;
+      font-weight: 700; line-height: 1.0; margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,.75);
+      font-style: italic; max-width: 520px; margin: 0 auto 40px;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3);
+      color: #fff; padding: 12px 28px; border-radius: 50px;
+      font-size: .9rem; font-weight: 500; transition: background .2s;
+    }
+    .hero-cta:hover { background: rgba(255,255,255,.2); text-decoration: none; }
+    .hero-img { margin-top: 56px; max-width: 320px; opacity: .92; }
+
+    /* ─── PHILOSOPHY / 80-10-10 ─────────────────────────────────── */
+    .pillars-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      margin: 40px 0;
+    }
+    .pillar-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 20px; text-align: center;
+    }
+    .pillar-card .pct {
+      font-family: 'Playfair Display', serif; font-size: 3rem;
+      font-weight: 700; color: var(--green); line-height: 1;
+      margin-bottom: 8px;
+    }
+    .pillar-card h3 { font-size: 1rem; margin: 0; }
+    @media(max-width:560px) { .pillars-grid { grid-template-columns: 1fr; gap: 14px; } .pillar-card .pct { font-size: 2.2rem; } }
+
+    /* ─── SECTION HEADERS ───────────────────────────────────────── */
+    .section-header { margin-bottom: 48px; }
+    .section-header p { max-width: 640px; }
+
+    /* ─── EVIDENCE / CAVEAT BOXES ───────────────────────────────── */
+    .box {
+      border-radius: var(--radius); padding: 20px 24px;
+      margin: 20px 0; font-size: .9rem;
+    }
+    .box-label { font-weight: 700; font-size: .82rem; margin-bottom: 6px; }
+    .box-evidence { background: var(--green-light); border: 1px solid #A5D6A7; }
+    .box-evidence .box-label { color: var(--green); }
+    .box-evidence p { color: #3A5F3A; }
+    .box-caveat   { background: var(--gold-light);  border: 1px solid #FFD180; }
+    .box-caveat   .box-label { color: var(--gold); }
+    .box-caveat   p { color: #5D3A00; }
+
+    /* ─── TWO-COL SPLIT ─────────────────────────────────────────── */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .split.img-right img { order: 2; }
+    @media(max-width:720px) { .split { grid-template-columns: 1fr; } }
+
+    /* ─── DRINK TABLE ───────────────────────────────────────────── */
+    .drink-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .drink-card { border-radius: var(--radius); padding: 22px; font-size: .9rem; }
+    .drink-card.good { background: var(--green-light); border: 1px solid #A5D6A7; }
+    .drink-card.bad  { background: var(--red-light);   border: 1px solid #FFCCBC; }
+    .drink-card h4 { font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 700; margin-bottom: 12px; }
+    .drink-card.good h4 { color: var(--green); }
+    .drink-card.bad  h4 { color: #C0392B; }
+    .drink-card ul { list-style: none; }
+    .drink-card li { padding: 4px 0; }
+    .drink-card.good li { color: #3A5F3A; }
+    .drink-card.bad  li { color: #7F1F1A; }
+    @media(max-width:540px) { .drink-grid { grid-template-columns: 1fr; } }
+
+    /* ─── OILS TABLE ────────────────────────────────────────────── */
+    .oils-wrap { display: flex; justify-content: center; margin: 32px 0; }
+    .oils-wrap img { max-width: 620px; border-radius: var(--radius); box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+
+    /* ─── CUT LIST ──────────────────────────────────────────────── */
+    .cut-list { list-style: none; counter-reset: cut; margin: 20px 0; }
+    .cut-list li {
+      counter-increment: cut; display: flex; align-items: flex-start; gap: 16px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    .cut-list li::before {
+      content: counter(cut); font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 700; color: var(--green);
+      min-width: 30px; line-height: 1;
+    }
+    .cut-list li span { color: var(--text-muted); }
+
+    /* ─── HORMONE CARDS ─────────────────────────────────────────── */
+    .hormones-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      margin: 40px 0;
+    }
+    .hormone-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 20px;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .hormone-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(44,95,46,.12); }
+    .hormone-icon { font-size: 2rem; margin-bottom: 12px; }
+    .hormone-card h3 { font-size: 1rem; color: var(--green); margin-bottom: 4px; }
+    .hormone-sub { font-size: .75rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; display: block; }
+    .hormone-card p { font-size: .88rem; color: var(--text-muted); margin: 0; }
+    @media(max-width:720px) { .hormones-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px) { .hormones-grid { grid-template-columns: 1fr; } }
+
+    /* ─── STRESSOR LIST ─────────────────────────────────────────── */
+    .stressor-list { list-style: none; margin: 16px 0; }
+    .stressor-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--border); font-size: .95rem;
+    }
+    .stressor-list li .ico { font-size: 1.2rem; min-width: 26px; }
+    .stressor-list li strong { display: block; color: var(--text); font-size: .9rem; }
+    .stressor-list li span { color: var(--text-muted); font-size: .88rem; }
+
+    /* ─── INSTAGRAM BUTTON ──────────────────────────────────────── */
+    .ig-credit { display: flex; align-items: center; gap: 16px; margin: 24px 0; flex-wrap: wrap; }
+    .ig-credit p { margin: 0; font-size: .88rem; color: var(--text-muted); }
+    .ig-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: 50px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: #fff; font-size: .82rem; font-weight: 600;
+      transition: opacity .2s; white-space: nowrap;
+    }
+    .ig-btn:hover { opacity: .88; text-decoration: none; }
+    .ig-btn svg { width: 16px; height: 16px; fill: #fff; }
+
+    /* ─── STORY SECTION ─────────────────────────────────────────── */
+    .story-wrap {
+      display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: center;
+    }
+    .story-photo {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(44,95,46,.18);
+      aspect-ratio: 3/4; background: #d4e8d4;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .story-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+    .story-photo-placeholder {
+      text-align: center; padding: 32px;
+      font-size: .85rem; color: var(--green-mid); font-style: italic;
+    }
+    .story-stat {
+      display: inline-flex; flex-direction: column;
+      background: var(--green); color: #fff; padding: 14px 22px;
+      border-radius: var(--radius); margin-bottom: 24px;
+    }
+    .story-stat .num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
+    .story-stat .lbl { font-size: .78rem; opacity: .8; }
+    .bio-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--green); color: var(--green);
+      padding: 9px 20px; border-radius: 50px; font-size: .88rem; font-weight: 600;
+      margin-top: 20px; transition: background .2s, color .2s;
+    }
+    .bio-link:hover { background: var(--green); color: #fff; text-decoration: none; }
+    @media(max-width:720px) { .story-wrap { grid-template-columns: 1fr; } .story-photo { max-width: 320px; margin: 0 auto; } }
+
+    /* ─── DISCLAIMER ────────────────────────────────────────────── */
+    .disclaimer {
+      background: #F0F0EB; border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .disclaimer p { font-size: .82rem; color: #888; max-width: 760px; text-align: center; margin: 0 auto; }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: #111; color: rgba(255,255,255,.5);
+      text-align: center; padding: 32px 24px; font-size: .82rem;
+    }
+    footer a { color: rgba(255,255,255,.7); }
+    footer a:hover { color: #fff; }
+
+    /* ─── MISC ──────────────────────────────────────────────────── */
+    .bullet-list { list-style: none; margin: 16px 0; }
+    .bullet-list li {
+      padding: 7px 0 7px 22px; position: relative;
+      color: var(--text-muted); font-size: .95rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .bullet-list li::before {
+      content: '•'; position: absolute; left: 0;
+      color: var(--green); font-size: 1.1rem;
+    }
+    .nature-img-wrap { display: flex; justify-content: center; margin: 32px 0; }
+    .nature-img-wrap img { max-width: 280px; }
+    .food-pyramid-wrap { display: flex; justify-content: center; margin: 32px 0; }
+    .food-pyramid-wrap img { max-width: 520px; border-radius: var(--radius); box-shadow: 0 4px 24px rgba(0,0,0,.08); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .tag { display: inline-block; background: var(--green-light); color: var(--green); font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Your Own Terms</span>
+    <ul class="nav-links">
+      <li><a href="#eat">Eat Well</a></li>
+      <li><a href="#move">Stay in Motion</a></li>
+      <li><a href="#habits">Habits & Exposure</a></li>
+      <li><a href="#story">My Story</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-eyebrow">A Personal Health Philosophy</p>
+  <h1 class="serif">Your<br>Own Terms</h1>
+  <p class="hero-sub">Biohack your body into its healthiest state — naturally, deliberately, and on your own terms.</p>
+  <a href="#philosophy" class="hero-cta">
+    Start reading
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+  </a>
+  <div class="hero-img">
+    <img src="images/cure-bandaid.webp" alt="The Cure vs The Bandaid" width="600" height="691" loading="lazy" />
+  </div>
+</section>
+
+<!-- ─── PHILOSOPHY ────────────────────────────────────────────────── -->
+<section class="section" id="philosophy">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="pillar-label">The Philosophy</span>
+      <h2>Health is not complicated.</h2>
+      <p>It has been complicated for us — by broken food pyramids, pharmaceutical dependencies, and an industrial food system designed to keep us consuming, not thriving. This guide documents a personal journey back to simplicity: using nature, real food, movement, and intentional habits to recover and optimize the human body.</p>
+      <p>Nothing here is extreme. It is common sense, practiced consistently.</p>
+    </div>
+
+    <div class="pillars-grid fade-in">
+      <div class="pillar-card">
+        <div class="pct">80%</div>
+        <h3>Eating Well</h3>
+        <p style="font-size:.85rem;margin-top:6px;">The single biggest lever for transformation.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pct">10%</div>
+        <h3>Staying in Motion</h3>
+        <p style="font-size:.85rem;margin-top:6px;">Consistent, natural movement — not punishment.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pct">10%</div>
+        <h3>Habits & Exposure</h3>
+        <p style="font-size:.85rem;margin-top:6px;">What you avoid matters as much as what you do.</p>
+      </div>
+    </div>
+
+    <p class="fade-in" style="text-align:center;font-style:italic;color:#888;font-size:.9rem;">What you need: the will to persevere, and about 7 hours of movement per week — 5 hours of walking, 2 hours of training.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PILLAR I — EAT WELL
+════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="eat">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="pillar-label">Pillar I</span>
+      <h2>Eat Well</h2>
+      <p>Forget the government's grain-heavy pyramid. The USDA model — with bread, cereal, and pasta as its base — has coincided with an unprecedented rise in obesity, diabetes, and metabolic dysfunction. It's time to reconsider from the ground up.</p>
+    </div>
+
+    <!-- Food Pyramid -->
+    <div class="split fade-in" style="margin-bottom:40px;">
+      <div>
+        <h3>The Real Food Pyramid</h3>
+        <p>Center your diet on animal foods and build from there. This is how humans ate for most of our evolutionary history — before industrial seed oils, refined grains, and processed sugar became dietary staples.</p>
+        <ul class="bullet-list">
+          <li><strong>Base:</strong> Meat and eggs — complete, bioavailable proteins and fats</li>
+          <li><strong>Middle:</strong> Raw dairy, organ meats — extraordinarily nutrient-dense</li>
+          <li><strong>Upper:</strong> Ripe, local fruit — natural sugars with fiber and enzymes</li>
+          <li><strong>Top:</strong> Honey, salt — nature's oldest seasonings</li>
+        </ul>
+        <div class="box box-evidence">
+          <div class="box-label">✓ Research Support</div>
+          <p>A 2024 NIH-published review confirms animal-sourced foods provide zinc, iron, vitamin B12, selenium, and vitamin A in forms significantly more bioavailable than plant sources. Organ meats rank among the most nutrient-dense foods known to science.</p>
+        </div>
+        <div class="box box-caveat">
+          <div class="box-label">⚠ Worth Knowing</div>
+          <p>Long-term studies show mixed results on high red meat consumption and cardiovascular risk. Quality matters: grass-fed, pasture-raised, and minimally processed sources are preferable. Consult a healthcare provider before major dietary changes.</p>
+        </div>
+
+        <!-- Paul Saladino credit -->
+        <div class="ig-credit">
+          <p>Food philosophy inspired by:</p>
+          <a class="ig-btn" href="https://www.instagram.com/paulsaladinomd/" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Follow Paul Saladino MD
+          </a>
+        </div>
+      </div>
+      <div class="food-pyramid-wrap" style="margin:0;">
+        <img src="images/food-pyramid.webp" alt="Animal-Based Food Pyramid" width="685" height="737" loading="lazy" />
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Cut the junk -->
+    <div class="fade-in">
+      <h3>What to Cut — In This Order</h3>
+      <p>Sustainable elimination beats cold-turkey failure. Work through these in sequence:</p>
+      <ol class="cut-list">
+        <li><span>Processed food and seed oils</span></li>
+        <li><span>Alcohol and processed sugar drinks — soda, diet soda, energy drinks</span></li>
+        <li><span>Gluten-containing grains — bread, pasta, cereals</span></li>
+      </ol>
+      <p style="margin-top:16px;">If you deal with autoimmune issues, consider also eliminating soy, dairy, and cruciferous vegetables for 30 days and observe the difference.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Oils -->
+    <div class="fade-in">
+      <h3>Know Your Oils</h3>
+      <p>Not all fats are created equal. The processing method and heat stability of an oil matters as much as its source. Cold-pressed, minimally processed fats from animal and traditional plant sources have a fundamentally different chemical profile from industrially extracted seed oils.</p>
+      <div class="oils-wrap">
+        <img src="images/oils.webp" alt="Healthy vs Unhealthy Oils" width="601" height="451" loading="lazy" />
+      </div>
+      <div class="box box-caveat">
+        <div class="box-label">⚠ Worth Knowing</div>
+        <p>The debate on seed oils is genuinely contested. A 2025 systematic review (Frontiers in Nutrition) found canola and flaxseed oils can improve lipid profiles and glycemic control. A separate 2025 study of 1,900 people found higher linoleic acid correlated with lower inflammation. The concerns center on oxidation at high heat, industrial processing, and the omega-6:omega-3 imbalance in modern diets — all legitimate issues worth weighing.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Drinks -->
+    <div class="fade-in">
+      <h3>Drink Real Things</h3>
+      <p>Much of what's marketed as "healthy" or "zero sugar" is heavily processed with long chemical ingredient lists. Drink closer to the source.</p>
+      <div class="drink-grid">
+        <div class="drink-card good">
+          <h4>✓ Drink These</h4>
+          <ul>
+            <li>Spring water — all day</li>
+            <li>Good coffee — mold-free, low-acid</li>
+            <li>Tea — powerful and natural</li>
+            <li>Raw milk — nutrient-dense</li>
+            <li>Kefir — best fermented drink</li>
+            <li>Cold-pressed fruit juice</li>
+            <li>Raw honey in water</li>
+          </ul>
+        </div>
+        <div class="drink-card bad">
+          <h4>✗ Skip These</h4>
+          <ul>
+            <li>Diet Coke — artificial sweeteners</li>
+            <li>Celsius — chemical stimulant list</li>
+            <li>Oatly / almond milk — seed oils</li>
+            <li>Truly & similar — processed alcohol</li>
+            <li>Any "zero sugar" drink with 10+ ingredients</li>
+          </ul>
+        </div>
+      </div>
+      <div class="box box-caveat">
+        <div class="box-label">⚠ On Raw Milk</div>
+        <p>Rich in bioavailable nutrients, probiotics, and enzymes. However, the CDC has linked unpasteurized dairy to 840× more illnesses than pasteurized products in tracked periods. Source from trusted, rigorously tested farms. Higher risk for pregnant women, young children, and immunocompromised individuals.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Kitchen -->
+    <div class="fade-in">
+      <h3>Clean Your Kitchen</h3>
+      <p>Hormone disruptors often enter the body at the food preparation stage — before you even eat.</p>
+      <ul class="bullet-list">
+        <li>Replace Teflon and non-stick coatings with cast iron, stainless steel, or ceramic</li>
+        <li>Replace plastic containers and bottles with glass or stainless steel</li>
+        <li>Eliminate aluminum cookware and PFAS-coated packaging</li>
+      </ul>
+      <p style="margin-top:16px;"><strong>Wash your produce</strong> in a baking soda solution — 1 teaspoon per 2 cups of water, soaking 12–15 minutes. A University of Massachusetts study found this removes up to 96% of surface pesticides, far more effectively than plain water.</p>
+      <div class="box box-caveat">
+        <div class="box-label">⚠ Worth Knowing</div>
+        <p>Baking soda removes surface pesticides only. Systemic pesticides absorbed internally by the plant cannot be washed off. For higher certainty, prioritize organic sourcing for the EWG's "Dirty Dozen" produce list.</p>
+      </div>
+    </div>
+
+    <!-- Adam Nili credit -->
+    <div class="fade-in" style="margin-top:48px;padding:32px;background:var(--green-light);border:1px solid #A5D6A7;border-radius:var(--radius);text-align:center;">
+      <p style="font-size:1rem;color:var(--text);margin-bottom:6px;">This entire health guide is mostly inspired by <strong>Adam Nili</strong>.</p>
+      <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:20px;">I highly recommend anyone on this journey follows him — his work changed how I see food, health, and what it means to truly thrive.</p>
+      <a class="ig-btn" href="https://www.instagram.com/itsadamnili/" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Follow @itsadamnili
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PILLAR II — STAY IN MOTION
+════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="move">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="pillar-label">Pillar II</span>
+      <h2>Stay in Motion</h2>
+      <p>The body reshapes and functions optimally as long as we nourish and train it well. Target 7,500–10,000 steps per day. Seven hours of total movement per week: 5 hours of walking, 2 hours of intentional training. This is not extreme — this is what the human body was designed for.</p>
+    </div>
+
+    <!-- Nature Walks -->
+    <div class="fade-in" style="margin-bottom:48px;">
+      <span class="tag">Most underrated health intervention</span>
+      <h3>Walk in Nature</h3>
+      <p>Walking in parks, trails, and natural settings is among the most researched, lowest-cost interventions for mental and physical health. Even 15–20 minutes in a natural environment produces measurable changes in brain chemistry and nervous system state.</p>
+
+      <div class="split" style="margin:32px 0 24px; align-items:center;">
+        <div class="nature-img-wrap" style="margin:0;">
+          <img src="images/nature-brain.webp" alt="Your brain on a nature walk" width="500" height="986" loading="lazy" />
+        </div>
+        <div>
+          <div class="box box-evidence">
+            <div class="box-label">✓ Research Support</div>
+            <p>Studies confirm just 15–20 minutes outdoors measurably reduces salivary cortisol (stress hormone). Multiple peer-reviewed studies link nature exposure to increased dopamine and serotonin, improved autonomic nervous system regulation, and enhanced mood and cognitive performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hormone section -->
+    <div class="fade-in" style="background:var(--green);border-radius:16px;padding:48px 40px;margin:0 0 56px;">
+      <h2 style="color:#fff;margin-bottom:8px;">What a Challenging Nature Walk Creates</h2>
+      <p style="color:rgba(255,255,255,.7);margin-bottom:36px;">Your body is a chemistry lab. Varied terrain, natural light, and physical exertion unlock a cascade of neurochemicals no supplement can replicate.</p>
+
+      <div class="hormones-grid">
+
+        <div class="hormone-card">
+          <div class="hormone-icon">🎯</div>
+          <h3>Dopamine</h3>
+          <span class="hormone-sub">Motivation & Reward</span>
+          <p>When you navigate new terrain, spot wildlife, or reach a summit, your brain's reward circuit fires. Dopamine is the fuel of curiosity, drive, and goal-oriented behavior. The sustained release from nature walks is fundamentally different from the hollow dopamine spikes of social media or ultra-processed food.</p>
+        </div>
+
+        <div class="hormone-card">
+          <div class="hormone-icon">⚡</div>
+          <h3>Testosterone</h3>
+          <span class="hormone-sub">Vitality & Strength</span>
+          <p>Physical exertion in natural light — especially morning sun — supports healthy testosterone production. Challenging terrain engages large muscle groups and stimulates hormonal responses associated with vitality, confidence, and physical strength in both men and women.</p>
+        </div>
+
+        <div class="hormone-card">
+          <div class="hormone-icon">☀️</div>
+          <h3>Serotonin</h3>
+          <span class="hormone-sub">Mood & Calm</span>
+          <p>Serotonin is largely regulated by light. Sunlight hitting your eyes and skin drives serotonin synthesis. Walking outdoors combines three powerful serotonin inputs simultaneously: physical movement, natural light, and green scenery. This is why a morning walk feels fundamentally different from an indoor workout.</p>
+        </div>
+
+        <div class="hormone-card">
+          <div class="hormone-icon">🌿</div>
+          <h3>Oxytocin</h3>
+          <span class="hormone-sub">Connection & Trust</span>
+          <p>Often called the "bonding hormone," oxytocin is triggered by connection — with others, animals, and the natural world itself. The sensation of earth beneath your feet, the sight of trees, the sound of water — these engage the same neurological circuits that produce belonging and safety.</p>
+        </div>
+
+        <div class="hormone-card">
+          <div class="hormone-icon">🌊</div>
+          <h3>Endocannabinoids</h3>
+          <span class="hormone-sub">Flow State & Ease</span>
+          <p>Your body produces its own cannabinoid compounds during sustained physical activity. This is the neurological basis of "flow state" — that effortless, absorbed feeling of being fully present. Varied, sustained outdoor movement produces endocannabinoid release without any external substance.</p>
+        </div>
+
+        <div class="hormone-card">
+          <div class="hormone-icon">🔥</div>
+          <h3>Endorphins</h3>
+          <span class="hormone-sub">Euphoria & Resilience</span>
+          <p>Endorphins are the body's natural pain-relief and euphoria system. Challenging terrain — hills, uneven ground, elevation gain — triggers endorphin release, building genuine resilience, reducing pain perception, and leaving you feeling profoundly well long after a demanding walk.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Barefoot -->
+    <div class="fade-in">
+      <h3>Barefoot and Minimalist Movement</h3>
+      <p>Conventional cushioned footwear weakens the intrinsic muscles of the foot over time by removing the natural feedback the foot was designed to handle. Gradual barefoot and minimalist walking rebuilds what modern shoes suppress.</p>
+      <div class="box box-evidence">
+        <div class="box-label">✓ Research Support</div>
+        <p>Research from the University of Liverpool found minimalist footwear worn for six months increases foot muscle strength by 57.4%. A separate study found minimalist walking increased foot muscle size and strength by an average of 41% over eight weeks.</p>
+      </div>
+      <div class="box box-caveat">
+        <div class="box-label">⚠ Transition Carefully</div>
+        <p>Sudden shifts to barefoot or minimalist footwear can cause stress fractures or Achilles tendon issues in those accustomed to cushioned shoes. Build gradually over weeks to months, starting with short daily sessions on natural, soft ground.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Train Smart -->
+    <div class="fade-in">
+      <h3>Train Smart</h3>
+      <ul class="bullet-list">
+        <li><strong>Core training</strong> — Most back pain originates from a weak core, especially the lateral (side) abdominals. These are frequently undertrained. Target them specifically.</li>
+        <li><strong>Flexibility</strong> — The most neglected pillar. Improves posture, reduces injury risk, and keeps you mobile as you age. Incorporate daily.</li>
+        <li><strong>Compound movement patterns</strong> — Push, pull, hinge, squat, carry. Compound lifts over isolation machines.</li>
+        <li><strong>Natural fabrics</strong> — Synthetic workout clothes (polyester, spandex, nylon, viscose) release microplastics and may leach endocrine-disrupting chemicals under heat and sweat. Opt for 100% cotton or 100% linen.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PILLAR III — HABITS & EXPOSURE
+════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="habits">
+  <div class="container">
+
+    <div class="section-header fade-in">
+      <span class="pillar-label">Pillar III</span>
+      <h2>Habits & Exposure</h2>
+      <p>The final pillar is about the invisible inputs that accumulate quietly over years — both the nourishing ones you want more of, and the disruptors you want to eliminate.</p>
+    </div>
+
+    <!-- Sun & Grounding -->
+    <div class="split fade-in" style="margin-bottom:40px;">
+      <div>
+        <h3>Let the Sun In</h3>
+        <p>Morning sunlight within an hour of waking sets your circadian clock, naturally suppresses residual melatonin, and triggers cortisol at the biologically correct time — for natural, sustained alertness. Afternoon sun drives vitamin D production.</p>
+        <p>More than 90% of our vitamin D comes from UVB exposure — a nutrient linked to immune function, bone density, mood regulation, and hormonal health. No supplement replaces it as effectively as being outside.</p>
+        <div class="box box-evidence">
+          <div class="box-label">✓ Research Support</div>
+          <p>Stanford, NIH, and Cleveland Clinic research confirms morning light exposure improves sleep quality, mood, and metabolic function. Phototherapy with morning light demonstrates antidepressant effects comparable to pharmacological treatments for seasonal affective disorder.</p>
+        </div>
+        <div class="box box-caveat">
+          <div class="box-label">⚠ Worth Knowing</div>
+          <p>Excessive UV exposure increases skin cancer risk. Avoid burning. Use zinc oxide-based physical sunscreen for extended midday exposure. Most chemical sunscreens contain oxybenzone and octinoxate — both recognized endocrine disruptors.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Ground Yourself</h3>
+        <p>Earthing — direct skin contact with the earth's surface (bare feet on grass, soil, or sand) — is based on the hypothesis that the earth's naturally occurring free electrons help neutralize free radicals and reduce systemic inflammation.</p>
+        <div class="box box-evidence">
+          <div class="box-label">✓ Research Support</div>
+          <p>NIH-published studies have found reduced cortisol, improved sleep quality, reduced pain scores, and faster wound healing associated with regular earthing. A 2025 randomized controlled trial found earthing mats significantly reduced insomnia severity and daytime sleepiness.</p>
+        </div>
+        <div class="box box-caveat">
+          <div class="box-label">⚠ Worth Knowing</div>
+          <p>Most grounding studies are small and methodologically limited. No definitive disease-prevention claims can be made from current evidence. The practice is free, low-risk, and deeply compatible with a nature-connected lifestyle. The downside is genuinely negligible.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Invisible stressors -->
+    <div class="fade-in">
+      <h3>Reduce Invisible Stressors</h3>
+      <p>What you avoid matters as much as what you do. These are the quiet disruptors worth addressing:</p>
+
+      <ul class="stressor-list">
+        <li>
+          <span class="ico">💧</span>
+          <div>
+            <strong>Fluoride</strong>
+            <span>A systematic review and dose-response meta-analysis found that elevated fluoride exposure may affect thyroid function, particularly in those who are iodine-deficient. Use filtered water where possible. <em>Note: effects are most documented at levels higher than standard water fluoridation.</em></span>
+          </div>
+        </li>
+        <li>
+          <span class="ico">📡</span>
+          <div>
+            <strong>EMF &amp; WiFi in the Bedroom</strong>
+            <span>Move your router out of your bedroom. Put your phone on airplane mode at night. Long-term evidence is still evolving — the precautionary principle applies, and the cost of this change is zero.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico">📱</span>
+          <div>
+            <strong>Blue Light at Night</strong>
+            <span>Blue light from screens after sunset suppresses melatonin and delays sleep onset — well-established science. Blue-light blocking glasses (amber-tinted, ≥1.0 mDFD rating) show sleep benefits, especially for those with disrupted patterns. <em>Not all glasses labeled "blue blockers" are effective — look for verified filter ratings.</em></span>
+          </div>
+        </li>
+        <li>
+          <span class="ico">🌸</span>
+          <div>
+            <strong>Synthetic Fragrances</strong>
+            <span>Peer-reviewed studies link synthetic fragrance chemicals (phthalates, musks, aldehydes) to respiratory irritation, allergic reactions, and endocrine disruption. Avoid commercial perfumes, synthetic air fresheners, and heavily fragranced products. A 2025 Frontiers in Toxicology review links them to perturbation of the endocrine-immune-neural axis.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico">🔇</span>
+          <div>
+            <strong>Noise Pollution</strong>
+            <span>Chronic ambient noise is a low-grade stressor. Even moderate background noise activates the sympathetic nervous system over time. Silence is not a luxury — it is a health input.</span>
+          </div>
+        </li>
+        <li>
+          <span class="ico">📲</span>
+          <div>
+            <strong>Social Media</strong>
+            <span>Use with intention. Aimless scrolling is engineered to be addictive and reliably correlates with anxiety, social comparison, and disrupted sleep. Set deliberate limits and honor them.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Rest & Stillness -->
+    <div class="fade-in">
+      <h3>Rest and Stillness</h3>
+      <ul class="bullet-list">
+        <li><strong>Sleep</strong> — Non-negotiable. Poor sleep undoes most positive effects of diet and exercise. Dark room, cool temperature, consistent sleep/wake times, no screens 1 hour before bed.</li>
+        <li><strong>Meditation, Prayer, or Stillness</strong> — Among the most robustly researched interventions for reducing chronic stress, lowering cortisol, and supporting long-term mental and physical health.</li>
+        <li><strong>Sunblock</strong> — Most chemical sunscreens are harmful. Use zinc-based physical sunscreens if needed.</li>
+      </ul>
+    </div>
+
+    <!-- Kashkhan credit -->
+    <div class="ig-credit fade-in" style="margin-top:32px;">
+      <p>Habits & exposure philosophy also inspired by:</p>
+      <a class="ig-btn" href="https://www.instagram.com/kashkhanofficial/" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Follow @kashkhanofficial
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     MY STORY
+════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="story">
+  <div class="container">
+    <div class="story-wrap fade-in">
+
+      <div>
+        <div class="story-photo">
+          <img src="images/Nelson Inno - yourownterms.life.webp" alt="Nelson Inno" />
+        </div>
+      </div>
+
+      <div>
+        <span class="story-label">Nelson Inno</span>
+        <h2>−30 Pounds. 30 Days. One Carnivore Month.</h2>
+        <div class="story-stat">
+          <span class="lbl" style="font-size:.95rem;opacity:1;">Diet gets you 80% of the results</span>
+        </div>
+        <p>I didn't stumble into this philosophy by accident. After years of dealing with health challenges — and growing frustrated at how conventional medicine treated symptoms rather than root causes — I decided to go all in.</p>
+        <p>I committed to a strict carnivore month: meat, eggs, animal fats, and water. The results were beyond what I expected. Thirty pounds in thirty days, but more than that — my energy, mental clarity, and overall sense of wellbeing shifted in ways no medication had ever produced.</p>
+        <p>That was the turning point. I now live this way — not as a restrictive diet, but as a lifestyle built around real food, natural movement, and intentional habits. This website documents what I've learned, and I will continue updating it as new studies emerge and my understanding deepens.</p>
+        <p>Along the way I also adopted a broader philosophy that shapes everything — not just how I eat, but how I live:</p>
+        <p style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--green);line-height:1.9;margin:4px 0 16px;">Quality over quantity.<br>Slow over fast.<br>Calmness over noise.</p>
+        <p style="font-style:italic;color:#888;font-size:.88rem;">Health is bioindividual. This is what worked powerfully for me — do your own research and consult a professional before making major changes.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;align-items:center;">
+          <a class="ig-btn" href="https://www.instagram.com/nelsoninno/" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            Follow @nelsoninno
+          </a>
+          <a class="bio-link" href="https://nelsoninno.com" target="_blank" rel="noopener" style="margin-top:0;">
+            Read my full biography →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── DISCLAIMER ─────────────────────────────────────────────────── -->
+<div class="disclaimer">
+  <div class="container">
+    <p><strong>Disclaimer:</strong> This website represents one person's personal research journey and lived experience. This is not medical advice. The studies and data referenced are ongoing and evolving. Some claims are well-supported by peer-reviewed research; others are based on emerging, contested, or limited evidence. Always consult a qualified healthcare professional before making significant changes to your diet, supplementation, or lifestyle — especially if you have pre-existing medical conditions. Do your own research.</p>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 <a href="https://yourownterms.life">yourownterms.life</a> &nbsp;·&nbsp; Built with intention &nbsp;·&nbsp; <a href="https://nelsoninno.com">About Nelson</a></p>
+</footer>
+
+<!-- ─── JS ─────────────────────────────────────────────────────────── -->
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
