@@ -168,7 +168,18 @@
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-muted); transition: color .2s; }
     .nav-links a:hover { color: var(--green); text-decoration: none; }
-    @media(max-width:640px) { .nav-links { display: none; } }
+    @media(max-width:640px) {
+      .nav-inner { flex-wrap: wrap; height: auto; padding: 10px 16px 0; gap: 4px; }
+      .nav-logo { flex: 1; }
+      .nav-links {
+        order: 3; width: 100%; overflow-x: auto; gap: 0;
+        scrollbar-width: none; -ms-overflow-style: none;
+        padding: 4px 0 8px; border-top: 1px solid var(--border); margin-top: 4px;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links li { flex-shrink: 0; }
+      .nav-links a { font-size: .75rem; padding: 2px 10px 2px 0; white-space: nowrap; }
+    }
 
     /* ─── HERO ──────────────────────────────────────────────────── */
     .hero {
@@ -440,6 +451,7 @@
       <li><a href="#eat">Eat Well</a></li>
       <li><a href="#move">Stay in Motion</a></li>
       <li><a href="#habits">Habits & Exposure</a></li>
+      <li><a href="#longevity">Age Like an Athlete</a></li>
       <li><a href="#story">My Story</a></li>
     </ul>
     <div class="lang-switcher">
@@ -774,6 +786,16 @@
       <p>The final pillar is about the invisible inputs that accumulate quietly over years, both the nourishing ones you want more of, and the disruptors you want to eliminate.</p>
     </div>
 
+    <div class="fade-in" style="text-align:center;margin-bottom:40px;">
+      <img src="images/Habits%20and%20Exposure%20-%20yourownterm.life.webp"
+           alt="Habits and Exposure — intentional daily inputs"
+           width="1254" height="1254"
+           style="max-width:520px;width:100%;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.08);"
+           loading="lazy" />
+    </div>
+
+
+
     <!-- Sun & Grounding -->
     <div class="split fade-in" style="margin-bottom:40px;">
       <div>
@@ -892,6 +914,16 @@
       <h2>Age Like an Athlete</h2>
       <p>Living longer is not the goal. Living <em>well</em> for longer is. The body you have at 70 or 80 is largely the product of decisions made decades earlier. Start training now for the functions you want to keep.</p>
     </div>
+
+    <div class="fade-in" style="text-align:center;margin-bottom:40px;">
+      <img src="images/Old%20Athletes%20-%20yourownterm.life%20.webp"
+           alt="Older athletes still competing — functional fitness for life"
+           width="953" height="1651"
+           style="max-width:420px;width:100%;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.08);"
+           loading="lazy" />
+    </div>
+
+
 
     <!-- Train for what you want -->
     <div class="fade-in">

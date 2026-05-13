@@ -168,7 +168,18 @@
     .nav-links { display: flex; gap: 28px; list-style: none; }
     .nav-links a { font-size: .82rem; font-weight: 500; color: var(--text-muted); transition: color .2s; }
     .nav-links a:hover { color: var(--green); text-decoration: none; }
-    @media(max-width:640px) { .nav-links { display: none; } }
+    @media(max-width:640px) {
+      .nav-inner { flex-wrap: wrap; height: auto; padding: 10px 16px 0; gap: 4px; }
+      .nav-logo { flex: 1; }
+      .nav-links {
+        order: 3; width: 100%; overflow-x: auto; gap: 0;
+        scrollbar-width: none; -ms-overflow-style: none;
+        padding: 4px 0 8px; border-top: 1px solid var(--border); margin-top: 4px;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links li { flex-shrink: 0; }
+      .nav-links a { font-size: .75rem; padding: 2px 10px 2px 0; white-space: nowrap; }
+    }
 
     /* ─── LANGUAGE SWITCHER ─────────────────────────────────────── */
     .lang-switcher {
@@ -770,6 +781,16 @@
       <p>El pilar final trata sobre los factores invisibles que se acumulan silenciosamente a lo largo de los años, tanto los nutritivos que quieres en mayor cantidad, como los disruptores que quieres eliminar.</p>
     </div>
 
+    <div class="fade-in" style="text-align:center;margin-bottom:40px;">
+      <img src="../images/Habits%20and%20Exposure%20-%20yourownterm.life.webp"
+           alt="Habits and Exposure — intentional daily inputs"
+           width="1254" height="1254"
+           style="max-width:520px;width:100%;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.08);"
+           loading="lazy" />
+    </div>
+
+
+
     <!-- Sun & Grounding -->
     <div class="split fade-in" style="margin-bottom:40px;">
       <div>
@@ -888,6 +909,16 @@
       <h2>Envejece como un atleta</h2>
       <p>Vivir más tiempo no es el objetivo. Vivir <em>bien</em> por más tiempo sí lo es. El cuerpo que tendrás a los 70 u 80 años es en gran parte el resultado de decisiones tomadas décadas antes. Empieza a entrenar ahora para las funciones que quieres conservar.</p>
     </div>
+
+    <div class="fade-in" style="text-align:center;margin-bottom:40px;">
+      <img src="../images/Old%20Athletes%20-%20yourownterm.life%20.webp"
+           alt="Older athletes still competing — functional fitness for life"
+           width="953" height="1651"
+           style="max-width:420px;width:100%;border-radius:var(--radius);box-shadow:0 4px 24px rgba(0,0,0,.08);"
+           loading="lazy" />
+    </div>
+
+
 
     <!-- Entrena para lo que quieres -->
     <div class="fade-in">
